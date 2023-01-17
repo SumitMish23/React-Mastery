@@ -2,6 +2,7 @@ import "./HelloReact.scss";
 import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import Product from './Product'
+import Search from './Search'
 const Greeting = () => {
   return <h1>Hi</h1>;
 };
@@ -233,7 +234,7 @@ const HelloReact = () => {
         </div>
       </div>
       <div className="product">
-        <Product/>
+        <Search/>
       </div>
       {/* <div className="input">
         <input type="text" />
