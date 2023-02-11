@@ -3,6 +3,18 @@
   padding: 0;
 }
 .container {
+  .model{
+    background-color: black;
+    color: #fff;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    text-align: center;
+  
+  }
   .hamburgerButton{
     // width:50px;
     // height: 30px;

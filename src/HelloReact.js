@@ -1,8 +1,8 @@
 import "./HelloReact.scss";
 import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
-import Product from './Product'
-import Search from './Search'
+import Product from "./Product";
+import Search from "./Search";
 const Greeting = () => {
   return <h1>Hi</h1>;
 };
@@ -30,57 +30,72 @@ export function SearchBar() {
     </div>
   );
 }
-export function ProductCategoryRow(){
-  return(
-    <div className="heading" style={{display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
-    <h4>Fruits</h4>
-    <h4>Vegetables</h4>
+export function ProductCategoryRow() {
+  return (
+    <div
+      className="heading"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+      }}
+    >
+      <h4>Fruits</h4>
+      <h4>Vegetables</h4>
     </div>
-    
-  )
+  );
 }
-export function ProductRow(){
-  return(
-   <div className="row" style={{display:'flex',flexDirection:'column'
-   ,justifyContent:'center'}}>
-    <ul>
-      <li  style={{color:'black'}}>Apple</li>
-      <li  style={{color:'black'}}>DragonFruit</li>
-      <li  style={{color:'black'}}>PassionFruit</li>
-    </ul>
+export function ProductRow() {
+  return (
+    <div
+      className="row"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <ul>
+        <li style={{ color: "black" }}>Apple</li>
+        <li style={{ color: "black" }}>DragonFruit</li>
+        <li style={{ color: "black" }}>PassionFruit</li>
+      </ul>
 
-    <ul>
-    <li  style={{color:'black'}}>Spinach</li>
-      <li  style={{color:'black'}}>Cauliflower</li>
-      <li  style={{color:'black'}}>potato</li>
-    </ul>
-   </div>
-    
-  )
+      <ul>
+        <li style={{ color: "black" }}>Spinach</li>
+        <li style={{ color: "black" }}>Cauliflower</li>
+        <li style={{ color: "black" }}>potato</li>
+      </ul>
+    </div>
+  );
 }
 export function ProductTable() {
   return (
-    <div className="productTable" style={{width:'400px'}}>
-      <div className="heading" style={{display:'flex',justifyContent:'space-evenly'}}>
+    <div className="productTable" style={{ width: "400px" }}>
+      <div
+        className="heading"
+        style={{ display: "flex", justifyContent: "space-evenly" }}
+      >
         <p>Name</p>
         <p>Price</p>
       </div>
 
       <div className="productCategory">
-        <ProductCategoryRow/>
-        <ProductRow/>
+        <ProductCategoryRow />
+        <ProductRow />
       </div>
     </div>
   );
 }
 
-export function SetCount(props){ 
+export function SetCount(props) {
   return (
     // console.log(props.count)
-    <button onClick={()=>props.setCount(props.count+1)}>{props.count}</button>
-  )
+    <button onClick={() => props.setCount(props.count + 1)}>
+      {props.count}
+    </button>
+  );
 }
-
 
 const HelloReact = () => {
   const [list, setList] = useState(["Buy Milk", "Tacos"]);
@@ -88,17 +103,15 @@ const HelloReact = () => {
   const [input, setInput] = useState("");
   const [buttonInput, setButtonInput] = useState(list[indexClicked]);
   const [count, setCount] = useState(0);
-
+  const [model,setModel]=useState(false);
   //  ------------------------------------
   const [val, setValue] = useState("");
   const [greet, setGreet] = useState("Morning");
   const [clicked, setClicked] = useState(false);
-  
 
   function setInputField(val, index) {
     if (indexClicked === index) {
       return (
-       
         <div>
           <input
             type="text"
@@ -150,8 +163,16 @@ const HelloReact = () => {
 
   return (
     <div className="container">
+       <button onClick={()=>setModel(!model)}>CLOSE</button>
+       {
+        model && <div className="model">
+       
+        Model
+      </div>
+
+       } 
       <div className="hello">
-      <SetCount count={count} setCount={setCount}/>
+        <SetCount count={count} setCount={setCount} />
       </div>
       <div className={clicked ? "hamburger" : "navbar"}>
         <button className="hamburgerButton">
@@ -230,11 +251,11 @@ const HelloReact = () => {
       <div className="buildReact">
         <div className="filterableProductTable">
           <SearchBar />
-          <ProductTable/>
+          <ProductTable />
         </div>
       </div>
       <div className="product">
-        <Search/>
+        <Search />
       </div>
       {/* <div className="input">
         <input type="text" />
